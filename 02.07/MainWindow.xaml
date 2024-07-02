@@ -7,6 +7,8 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-
+        <ListBox x:Name="lstBooks" HorizontalAlignment="Left" Height="500" VerticalAlignment="Top" Width="300" Margin="10,10,0,0" SelectionChanged="lstBooks_SelectionChanged"/>
+        <TextBox x:Name="txtBookContent" HorizontalAlignment="Left" Height="500" VerticalAlignment="Top" Width="460" Margin="320,10,10,10" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" AcceptsReturn="True" IsReadOnly="True"/>
+        <Button x:Name="btnLoadBooks" Content="Load Popular Books" HorizontalAlignment="Left" VerticalAlignment="Top" Width="300" Margin="10,520,0,0" Click="btnLoadBooks_Click"/>
     </Grid>
 </Window>
