@@ -7,6 +7,19 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-
+        <TextBox x:Name="txtAuthorFirstName" Width="150" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10" PlaceholderText="First Name"/>
+        <TextBox x:Name="txtAuthorLastName" Width="150" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="170,10,0,0" PlaceholderText="Last Name"/>
+        <Button x:Name="btnSearch" Content="Search Books" Width="100" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="330,10,0,0" Click="btnSearch_Click"/>
+        <ListBox x:Name="lstBooks" HorizontalAlignment="Left" Height="450" VerticalAlignment="Top" Width="460" Margin="10,50,0,0" SelectionChanged="lstBooks_SelectionChanged">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Title}" VerticalAlignment="Center" Margin="5"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Button x:Name="btnDownloadAll" Content="Download All Books" Width="200" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,520,0,0" Click="btnDownloadAll_Click"/>
+        <TextBox x:Name="txtBookContent" HorizontalAlignment="Left" Height="450" VerticalAlignment="Top" Width="300" Margin="480,50,10,10" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" AcceptsReturn="True" IsReadOnly="True"/>
     </Grid>
 </Window>
