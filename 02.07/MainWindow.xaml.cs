@@ -1,13 +1,7 @@
-﻿using System.Text;
+﻿using System;
+using System.Net.Http;
+using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace _02._07
 {
@@ -16,6 +10,33 @@ namespace _02._07
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private async void btnDownload_Click(object sender, RoutedEventArgs e)
+        {
+            string url = "https://www.gutenberg.org/files/1524/1524-0.txt";
+            txtHamlet.Text = "Downloading... Please wait.";
+
+            try
+            {
+                string hamletText = await DownloadHamletTextAsync(url);
+                txtHamlet.Text = hamletText;
+            }
+            catch (Exception ex)
+            {
+                txtHamlet.Text = $"Error: {ex.Message}";
+            }
+        }
+
+        private async Task<string> DownloadHamletTextAsync(string url)
+        {
+            using (HttpClient client = new HttpClient())
+            {
+                HttpResponseMessage response = await client.GetAsync(url);
+                response.EnsureSuccessStatusCode();
+                string responseBody = await response.Content.ReadAsStringAsync();
+                return responseBody;
+            }
         }
     }
 }
