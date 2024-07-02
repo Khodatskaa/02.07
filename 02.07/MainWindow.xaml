@@ -7,6 +7,18 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-
+        <TextBox x:Name="txtSearch" Width="300" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10"/>
+        <Button x:Name="btnSearch" Content="Search" Width="100" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="320,10,0,0" Click="btnSearch_Click"/>
+        <ListBox x:Name="lstResults" HorizontalAlignment="Left" Height="500" VerticalAlignment="Top" Width="300" Margin="10,50,0,0" SelectionChanged="lstResults_SelectionChanged">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="{Binding CoverUrl}" Width="50" Height="75" Margin="5"/>
+                        <TextBlock Text="{Binding Title}" VerticalAlignment="Center" Margin="5"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <TextBox x:Name="txtBookContent" HorizontalAlignment="Left" Height="500" VerticalAlignment="Top" Width="460" Margin="320,50,10,10" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" AcceptsReturn="True" IsReadOnly="True"/>
     </Grid>
 </Window>
