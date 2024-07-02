@@ -7,6 +7,9 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-
+        <TextBox x:Name="txtSearchQuery" Width="400" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10"
+                 Text="Enter search query" Foreground="LightGray" GotFocus="txtSearchQuery_GotFocus" LostFocus="txtSearchQuery_LostFocus"/>
+        <Button x:Name="btnSearch" Content="Search" Width="100" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="420,10,0,0" Click="btnSearch_Click"/>
+        <TextBox x:Name="txtSearchResults" HorizontalAlignment="Left" Height="350" VerticalAlignment="Top" Width="760" Margin="10,50,10,10" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" AcceptsReturn="True" IsReadOnly="True"/>
     </Grid>
 </Window>
